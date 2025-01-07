@@ -1,0 +1,39 @@
+<p>Student List</p>
+<button routerLink="/create"> Create New Student</button>
+<div *ngIf="students.length; else noStudents">
+  <table mat-table [dataSource]="students" class="mat-elevation-z8" style="width: 100%;">
+    <!-- ID Column -->
+    <ng-container matColumnDef="studentID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let student"> {{ student.studentID }} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let student"> {{ student.name }} </td>
+    </ng-container>
+
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let student"> {{ student.address }} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let student">
+        <button mat-raised-button color="primary" (click)="onEdit(student.studentID)">Edit</button>
+        <button mat-raised-button color="warn" (click)="onDelete(student.studentID)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<ng-template #noStudents>
+  <p>No students available.</p>
+</ng-template>
