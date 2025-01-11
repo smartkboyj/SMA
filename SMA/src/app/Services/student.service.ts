@@ -19,7 +19,7 @@ import { IStudent } from '../Models/student.model';
 export class StudentService {
   private baseUrl = 'https://localhost:44303/'; // Replace with your API URL
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient ) {}
 
   // Get all students
   getAllStudents(): Observable<IStudent[]> {

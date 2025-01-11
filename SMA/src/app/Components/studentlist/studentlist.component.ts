@@ -22,7 +22,7 @@ export class StudentlistComponent {
   ngOnInit(): void {
     this.getStudents();
   }
-
+ // added 
   getStudents(): void {
     this.studentService.getAllStudents().subscribe((data: IStudent[]) => {
       this.students = data;
@@ -34,7 +34,7 @@ export class StudentlistComponent {
   }
 
   onDelete(id: number): void {
-    var res=confirm("DO you want to delete thi record");
+    var res=confirm("DO you want to delete this record");
     if(res){
     this.studentService.deleteStudent(id).subscribe(() => {
       this.getStudents();

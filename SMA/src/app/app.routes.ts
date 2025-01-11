@@ -12,7 +12,9 @@ export const routes: Routes = [
   { path: 'list', component: StudentlistComponent },
   { path: 'create', component: StudentcreateComponent },
   //{ path: 'edit', component: StudenteditComponent},
-  { path: 'edit/:id', component: StudenteditComponent }, // Updated route with id parameter
+  { path: 'edit/:id', component: StudenteditComponent,
+   
+   }, // Updated route with id parameter
 
 ];
 
